@@ -1,0 +1,5 @@
+mysql:
+    root_password: forsaken
+    user: byteland
+    password: forsaken
+    database: byteland
