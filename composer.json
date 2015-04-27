@@ -1,11 +1,9 @@
 {
   "require": {
-    "silex/silex": "~1.2"
-  },
-  "require-dev": {
-    "phpspec/phpspec": "~2.0"
+    "silex/silex": "v1.2.4",
+    "silex/web-profiler": "v1.0.6"
   },
   "autoload": {
-    "psr-0": { "": "www/" }
+    "psr-4": {"Byteland\\": "www/"}
   }
 }
