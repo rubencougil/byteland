@@ -14,6 +14,24 @@ class UseCaseProvider implements ServiceProviderInterface
                 $app['repo.restaurant']
             );
         });
+
+        $app['usecase.addrestaurant'] = $app->share(function ($name) use ($app) {
+            return new \Byteland\Domain\Usecase\AddRestaurant(
+                $app['repo.restaurant']
+            );
+        });
+
+        $app['usecase.listrestaurant'] = $app->share(function ($name) use ($app) {
+            return new \Byteland\Domain\Usecase\ListRestaurant(
+                $app['repo.restaurant']
+            );
+        });
+
+        $app['usecase.removerestaurant'] = $app->share(function ($name) use ($app) {
+            return new \Byteland\Domain\Usecase\RemoveRestaurant(
+                $app['repo.restaurant']
+            );
+        });
     }
 
     public function boot(Application $app)

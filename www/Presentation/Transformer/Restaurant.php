@@ -14,10 +14,18 @@ class Restaurant implements \JsonSerializable
         return $this;
     }
 
+    public function transformList(array $restaurantList)
+    {
+        return array_map(function($restaurant){
+           return self::transform($restaurant);
+        }, $restaurantList);
+    }
+
     public function jsonSerialize()
     {
         return [
-          'name' => $this->restaurant->name()
+            'name' => $this->restaurant->name(),
+            'max' => $this->restaurant->max()
         ];
     }
 }

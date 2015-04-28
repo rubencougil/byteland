@@ -23,6 +23,9 @@ $app->register(new Provider\WebProfilerServiceProvider(), array(
     'profiler.mount_prefix' => '/_profiler'
 ));
 
+$app->get('/restaurant', 'controller.listrestaurant:execute');
 $app->get('/restaurant/{name}', 'controller.getrestaurant:execute');
+$app->post('/restaurant', 'controller.addrestaurant:execute');
+$app->delete('/restaurant/{name}', 'controller.removerestaurant:execute');
 
 $app->run(); 

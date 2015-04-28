@@ -4,30 +4,30 @@ namespace Byteland\Presentation\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Byteland\Domain\Usecase\GetRestaurant as GetRestaurantUseCase;
+use Byteland\Domain\Usecase\RemoveRestaurant as RemoveRestaurantUseCase;
 use Byteland\Presentation\Transformer\Restaurant as RestaurantTransformer;
 
-class GetRestaurant
+class RemoveRestaurant
 {
-    private $getRestaurantUseCase;
+    private $removeRestaurantUseCase;
 
     public function __construct(
-        GetRestaurantUseCase $getRestaurantUseCase,
+        RemoveRestaurantUseCase $removeRestaurantUseCase,
         RestaurantTransformer $restaurantTransformer
     )
     {
-        $this->getRestaurantUseCase = $getRestaurantUseCase;
+        $this->removeRestaurantUseCase = $removeRestaurantUseCase;
         $this->restaurantTransformer = $restaurantTransformer;
     }
 
     public function execute(Request $request)
     {
-        $restaurant = $this->getRestaurantUseCase->handle(
+        $restaurantList = $this->removeRestaurantUseCase->handle(
             $request->get('name')
         );
 
         return JsonResponse::create(
-            $this->restaurantTransformer->transform($restaurant)
+            $this->restaurantTransformer->transformList($restaurantList)
         );
     }
 }
