@@ -1,29 +1,31 @@
 <?php
 
-namespace Byteland\Presentation\Controller;
+namespace Byteland\Presentation\Controller\Restaurant;
 
+use Byteland\Domain\Entity\Restaurant;
 use Symfony\Component\HttpFoundation\Request;
-use Byteland\Domain\Usecase\GetRestaurant as GetRestaurantUseCase;
+use Byteland\Domain\Usecase\Restaurant\AddRestaurant as AddRestaurantUseCase;
 use Byteland\Presentation\Transformer\Restaurant as RestaurantTransformer;
 use Symfony\Component\HttpFoundation\Response;
 
-class GetRestaurant
+class AddRestaurant
 {
-    private $getRestaurantUseCase;
+    private $addRestaurantUseCase;
+    private $restaurantTransformer;
 
     public function __construct(
-        GetRestaurantUseCase $getRestaurantUseCase,
+        AddRestaurantUseCase $addRestaurantUseCase,
         RestaurantTransformer $restaurantTransformer
     )
     {
-        $this->getRestaurantUseCase = $getRestaurantUseCase;
+        $this->addRestaurantUseCase = $addRestaurantUseCase;
         $this->restaurantTransformer = $restaurantTransformer;
     }
 
     public function execute(Request $request)
     {
-        $restaurant = $this->getRestaurantUseCase->handle(
-            $request->get('name')
+        $restaurant = $this->addRestaurantUseCase->handle(
+            new Restaurant($request->get('name'), $request->get('max'))
         );
 
         return Response::create(

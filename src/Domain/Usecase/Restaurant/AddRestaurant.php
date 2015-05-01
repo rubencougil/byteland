@@ -1,9 +1,8 @@
 <?php
 
-namespace Byteland\Domain\Usecase;
+namespace Byteland\Domain\Usecase\Restaurant;
 
 use Byteland\Domain\Repository\Restaurant;
-use Byteland\Domain\Entity\Restaurant as RestaurantEntity;
 
 class AddRestaurant
 {
@@ -14,7 +13,7 @@ class AddRestaurant
         $this->restaurantRepo = $restaurantRepo;
     }
 
-    public function handle(RestaurantEntity $restaurant)
+    public function handle(Restaurant $restaurant)
     {
         return $this->restaurantRepo->add($restaurant);
     }

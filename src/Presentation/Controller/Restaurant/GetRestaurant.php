@@ -1,33 +1,33 @@
 <?php
 
-namespace Byteland\Presentation\Controller;
+namespace Byteland\Presentation\Controller\Restaurant;
 
 use Symfony\Component\HttpFoundation\Request;
-use Byteland\Domain\Usecase\RemoveRestaurant as RemoveRestaurantUseCase;
+use Byteland\Domain\Usecase\Restaurant\GetRestaurant as GetRestaurantUseCase;
 use Byteland\Presentation\Transformer\Restaurant as RestaurantTransformer;
 use Symfony\Component\HttpFoundation\Response;
 
-class RemoveRestaurant
+class GetRestaurant
 {
-    private $removeRestaurantUseCase;
+    private $getRestaurantUseCase;
 
     public function __construct(
-        RemoveRestaurantUseCase $removeRestaurantUseCase,
+        GetRestaurantUseCase $getRestaurantUseCase,
         RestaurantTransformer $restaurantTransformer
     )
     {
-        $this->removeRestaurantUseCase = $removeRestaurantUseCase;
+        $this->getRestaurantUseCase = $getRestaurantUseCase;
         $this->restaurantTransformer = $restaurantTransformer;
     }
 
     public function execute(Request $request)
     {
-        $restaurantList = $this->removeRestaurantUseCase->handle(
+        $restaurant = $this->getRestaurantUseCase->handle(
             $request->get('name')
         );
 
         return Response::create(
-            serialize($this->restaurantTransformer->transformList($restaurantList))
+            serialize($this->restaurantTransformer->transform($restaurant))
         );
     }
 }

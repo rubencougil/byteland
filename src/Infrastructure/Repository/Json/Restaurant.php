@@ -31,6 +31,8 @@ class Restaurant implements RestaurantRepository
             'max'  => $restaurant->max()
         ];
 
+        $this->persist();
+
         return $this->get($restaurant->name());
     }
 
@@ -44,6 +46,7 @@ class Restaurant implements RestaurantRepository
     public function delete($name)
     {
         unset($this->restaurants[$name]);
+        $this->persist();
         return $this->all();
     }
 

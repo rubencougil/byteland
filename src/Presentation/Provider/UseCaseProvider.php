@@ -9,27 +9,51 @@ class UseCaseProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
-        $app['usecase.getrestaurant'] = $app->share(function ($name) use ($app) {
-            return new \Byteland\Domain\Usecase\GetRestaurant(
+        $app['usecase.getrestaurant'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Restaurant\GetRestaurant(
                 $app['repo.restaurant']
             );
         });
 
-        $app['usecase.addrestaurant'] = $app->share(function ($name) use ($app) {
-            return new \Byteland\Domain\Usecase\AddRestaurant(
+        $app['usecase.addrestaurant'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Restaurant\AddRestaurant(
                 $app['repo.restaurant']
             );
         });
 
-        $app['usecase.listrestaurant'] = $app->share(function ($name) use ($app) {
-            return new \Byteland\Domain\Usecase\ListRestaurant(
+        $app['usecase.listrestaurant'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Restaurant\ListRestaurant(
                 $app['repo.restaurant']
             );
         });
 
-        $app['usecase.removerestaurant'] = $app->share(function ($name) use ($app) {
-            return new \Byteland\Domain\Usecase\RemoveRestaurant(
+        $app['usecase.removerestaurant'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Restaurant\RemoveRestaurant(
                 $app['repo.restaurant']
+            );
+        });
+
+        $app['usecase.getclient'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Client\GetClient(
+                $app['repo.client']
+            );
+        });
+
+        $app['usecase.addclient'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Client\AddClient(
+                $app['repo.client']
+            );
+        });
+
+        $app['usecase.removeclient'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Client\RemoveClient(
+                $app['repo.client']
+            );
+        });
+
+        $app['usecase.listclient'] = $app->share(function() use ($app) {
+            return new \Byteland\Domain\Usecase\Client\ListClient(
+                $app['repo.client']
             );
         });
     }

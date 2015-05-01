@@ -12,6 +12,10 @@ class TransformerProvider implements ServiceProviderInterface
         $app['transformer.restaurant'] = $app->share(function() use ($app) {
             return new \Byteland\Presentation\Transformer\Restaurant();
         });
+
+        $app['transformer.client'] = $app->share(function() use ($app) {
+            return new \Byteland\Presentation\Transformer\Client();
+        });
     }
 
     public function boot(Application $app)

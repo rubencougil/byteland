@@ -1,6 +1,6 @@
 <?php
 
-namespace Byteland\Domain\Usecase;
+namespace Byteland\Domain\Usecase\Restaurant;
 
 use Byteland\Domain\Repository\Restaurant;
 

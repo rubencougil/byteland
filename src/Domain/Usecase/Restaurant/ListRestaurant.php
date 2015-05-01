@@ -1,10 +1,10 @@
 <?php
 
-namespace Byteland\Domain\Usecase;
+namespace Byteland\Domain\Usecase\Restaurant;
 
 use Byteland\Domain\Repository\Restaurant;
 
-class GetRestaurant
+class ListRestaurant
 {
     private $restaurantRepo;
 
@@ -13,8 +13,8 @@ class GetRestaurant
         $this->restaurantRepo = $restaurantRepo;
     }
 
-    public function handle($name)
+    public function handle()
     {
-        return $this->restaurantRepo->get($name);
+        return $this->restaurantRepo->all();
     }
 }

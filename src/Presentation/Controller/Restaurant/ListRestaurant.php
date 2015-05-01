@@ -1,8 +1,8 @@
 <?php
 
-namespace Byteland\Presentation\Controller;
+namespace Byteland\Presentation\Controller\Restaurant;
 
-use Byteland\Domain\Usecase\ListRestaurant as ListRestaurantUseCase;
+use Byteland\Domain\Usecase\Restaurant\ListRestaurant as ListRestaurantUseCase;
 use Byteland\Presentation\Transformer\Restaurant as RestaurantTransformer;
 use Symfony\Component\HttpFoundation\Response;
 
