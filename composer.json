@@ -4,6 +4,6 @@
     "silex/web-profiler": "v1.0.6"
   },
   "autoload": {
-    "psr-4": {"Byteland\\": "www/"}
+    "psr-4": {"Byteland\\": "src/"}
   }
 }

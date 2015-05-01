@@ -59,5 +59,5 @@ Vagrant.configure("2") do |config|
     end
 
     
-    config.vm.synced_folder "./", "/vagrant/www", type: "nfs"
+    config.vm.synced_folder "./", "/vagrant/src", type: "nfs"
 end
