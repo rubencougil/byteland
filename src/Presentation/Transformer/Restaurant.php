@@ -3,15 +3,15 @@
 namespace Byteland\Presentation\Transformer;
 
 use Byteland\Domain\Entity\Restaurant as RestaurantEntity;
+use Byteland\Presentation\View\Restaurant as RestaurantView;
 
-class Restaurant implements \JsonSerializable
+class Restaurant
 {
     private $restaurant;
 
     public function transform(RestaurantEntity $restaurant)
     {
-        $this->restaurant = $restaurant;
-        return $this;
+        return new RestaurantView($restaurant);
     }
 
     public function transformList(array $restaurantList)

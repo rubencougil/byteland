@@ -2,6 +2,7 @@
 
 namespace Byteland\Presentation\Controller;
 
+use Byteland\Domain\Entity\Restaurant;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Byteland\Domain\Usecase\AddRestaurant as AddRestaurantUseCase;
@@ -23,8 +24,7 @@ class AddRestaurant
     public function execute(Request $request)
     {
         $restaurant = $this->addRestaurantUseCase->handle(
-            $request->get('name'),
-            $request->get('max')
+            new Restaurant($request->get('name'), $request->get('max'))
         );
 
         return JsonResponse::create(

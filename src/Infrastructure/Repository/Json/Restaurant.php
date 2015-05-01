@@ -24,16 +24,14 @@ class Restaurant implements RestaurantRepository
         );
     }
 
-    public function add($name, $max)
+    public function add(RestaurantEntity $restaurant)
     {
-        $this->restaurants[$name] = [
-            'name' => $name,
-            'max'  => $max
+        $this->restaurants[$restaurant->name()] = [
+            'name' => $restaurant->name(),
+            'max'  => $restaurant->max()
         ];
 
-        $this->persist();
-
-        return $this->get($name);
+        return $this->get($restaurant->name());
     }
 
     public function all()

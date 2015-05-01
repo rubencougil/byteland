@@ -3,6 +3,7 @@
 namespace Byteland\Domain\Usecase;
 
 use Byteland\Domain\Repository\Restaurant;
+use Byteland\Domain\Entity\Restaurant as RestaurantEntity;
 
 class AddRestaurant
 {
@@ -13,8 +14,8 @@ class AddRestaurant
         $this->restaurantRepo = $restaurantRepo;
     }
 
-    public function handle($name, $max)
+    public function handle(RestaurantEntity $restaurant)
     {
-        return $this->restaurantRepo->add($name, $max);
+        return $this->restaurantRepo->add($restaurant);
     }
 }

@@ -20,7 +20,7 @@ class ListRestaurant
         $this->restaurantTransformer = $restaurantTransformer;
     }
 
-    public function execute(Request $request)
+    public function execute()
     {
         $restaurantList = $this->listRestaurantUseCase->handle();
 
