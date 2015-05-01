@@ -2,10 +2,9 @@
 
 namespace Byteland\Presentation\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Byteland\Domain\Usecase\ListRestaurant as ListRestaurantUseCase;
 use Byteland\Presentation\Transformer\Restaurant as RestaurantTransformer;
+use Symfony\Component\HttpFoundation\Response;
 
 class ListRestaurant
 {
@@ -24,8 +23,8 @@ class ListRestaurant
     {
         $restaurantList = $this->listRestaurantUseCase->handle();
 
-        return JsonResponse::create(
-            $this->restaurantTransformer->transformList($restaurantList)
+        return Response::create(
+            serialize($this->restaurantTransformer->transformList($restaurantList))
         );
     }
 }

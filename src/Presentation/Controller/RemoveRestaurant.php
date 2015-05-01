@@ -2,10 +2,10 @@
 
 namespace Byteland\Presentation\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Byteland\Domain\Usecase\RemoveRestaurant as RemoveRestaurantUseCase;
 use Byteland\Presentation\Transformer\Restaurant as RestaurantTransformer;
+use Symfony\Component\HttpFoundation\Response;
 
 class RemoveRestaurant
 {
@@ -26,8 +26,8 @@ class RemoveRestaurant
             $request->get('name')
         );
 
-        return JsonResponse::create(
-            $this->restaurantTransformer->transformList($restaurantList)
+        return Response::create(
+            serialize($this->restaurantTransformer->transformList($restaurantList))
         );
     }
 }

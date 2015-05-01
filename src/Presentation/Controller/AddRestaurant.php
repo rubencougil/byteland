@@ -3,10 +3,10 @@
 namespace Byteland\Presentation\Controller;
 
 use Byteland\Domain\Entity\Restaurant;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Byteland\Domain\Usecase\AddRestaurant as AddRestaurantUseCase;
 use Byteland\Presentation\Transformer\Restaurant as RestaurantTransformer;
+use Symfony\Component\HttpFoundation\Response;
 
 class AddRestaurant
 {
@@ -27,8 +27,8 @@ class AddRestaurant
             new Restaurant($request->get('name'), $request->get('max'))
         );
 
-        return JsonResponse::create(
-            $this->restaurantTransformer->transform($restaurant)
+        return Response::create(
+            serialize($this->restaurantTransformer->transform($restaurant))
         );
     }
 }

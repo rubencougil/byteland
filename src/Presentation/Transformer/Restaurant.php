@@ -7,8 +7,6 @@ use Byteland\Presentation\View\Restaurant as RestaurantView;
 
 class Restaurant
 {
-    private $restaurant;
-
     public function transform(RestaurantEntity $restaurant)
     {
         return new RestaurantView($restaurant);
@@ -19,13 +17,5 @@ class Restaurant
         return array_map(function($restaurant){
            return self::transform($restaurant);
         }, $restaurantList);
-    }
-
-    public function jsonSerialize()
-    {
-        return [
-            'name' => $this->restaurant->name(),
-            'max' => $this->restaurant->max()
-        ];
     }
 }
