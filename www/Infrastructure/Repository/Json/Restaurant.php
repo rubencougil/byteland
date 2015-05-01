@@ -1,0 +1,56 @@
+<?php
+
+namespace Byteland\Infrastructure\Repository\Json;
+
+use Byteland\Domain\Repository\Restaurant as RestaurantRepository;
+use Byteland\Domain\Entity\Restaurant as RestaurantEntity;
+
+class Restaurant implements RestaurantRepository
+{
+    private $restaurants;
+    private $path;
+
+    public function __construct($path)
+    {
+        $this->path = $path;
+        $this->restaurants = json_decode(file_get_contents($path), true);
+    }
+
+    public function get($name)
+    {
+        return new RestaurantEntity(
+            $this->restaurants[$name]['name'],
+            $this->restaurants[$name]['max']
+        );
+    }
+
+    public function add($name, $max)
+    {
+        $this->restaurants[$name] = [
+            'name' => $name,
+            'max'  => $max
+        ];
+
+        $this->persist();
+
+        return $this->get($name);
+    }
+
+    public function all()
+    {
+        return array_map(function($restaurant){
+            return new RestaurantEntity($restaurant['name'], $restaurant['max']);
+        }, $this->restaurants);
+    }
+
+    public function delete($name)
+    {
+        unset($this->restaurants[$name]);
+        return $this->all();
+    }
+
+    public function persist()
+    {
+        file_put_contents($this->path, json_encode($this->restaurants));
+    }
+}

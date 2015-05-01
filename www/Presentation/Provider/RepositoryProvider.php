@@ -10,7 +10,9 @@ class RepositoryProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['repo.restaurant'] = $app->share(function() use ($app) {
-            return new \Byteland\Infrastructure\Repository\Fake\Restaurant;
+            return new \Byteland\Infrastructure\Repository\Json\Restaurant(
+                __DIR__ . "/../../DataSource/restaurants.json"
+            );
         });
     }
 
