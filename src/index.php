@@ -15,20 +15,9 @@ $app->register(new Byteland\Presentation\Provider\RepositoryProvider());
 $app->register(new Byteland\Presentation\Provider\ControllerProvider());
 $app->register(new Byteland\Presentation\Provider\UseCaseProvider());
 
-$app->register(new Provider\ServiceControllerServiceProvider());
-$app->register(new Provider\TwigServiceProvider());
-$app->register(new Provider\UrlGeneratorServiceProvider());
 
-$app->register(new Provider\WebProfilerServiceProvider(), array(
-    'profiler.cache_dir' => '/tmp/cache/profiler',
-    'profiler.mount_prefix' => '/_profiler'
-));
-
+// Routing
+$app->mount('/restaurant', include __DIR__.'/Presentation/Routes/Restaurant.php');
 $app->after('response.json:execute');
-
-$app->get('/restaurant', 'controller.listrestaurant:execute');
-$app->get('/restaurant/{name}', 'controller.getrestaurant:execute');
-$app->post('/restaurant', 'controller.addrestaurant:execute');
-$app->delete('/restaurant/{name}', 'controller.removerestaurant:execute');
 
 $app->run(); 

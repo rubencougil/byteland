@@ -1,7 +1,6 @@
 {
   "require": {
-    "silex/silex": "v1.2.4",
-    "silex/web-profiler": "v1.0.6"
+    "silex/silex": "v1.2.4"
   },
   "autoload": {
     "psr-4": {"Byteland\\": "src/"}
