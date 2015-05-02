@@ -22,6 +22,9 @@ class AddClient
         $this->clientTransformer = $clientTransformer;
     }
 
+    /**
+     * @throws \Byteland\Domain\Exception\ClientException When client cannot be added;
+     */
     public function execute(Request $request)
     {
         $client = $this->addClientUseCase->handle(

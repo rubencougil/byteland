@@ -22,6 +22,9 @@ class AddRestaurant
         $this->restaurantTransformer = $restaurantTransformer;
     }
 
+    /**
+     * @throws \Byteland\Domain\Exception\RestaurantException When restaurant cannot be added;
+     */
     public function execute(Request $request)
     {
         $restaurant = $this->addRestaurantUseCase->handle(
