@@ -20,12 +20,12 @@ itself (framework concerns). The application is separated in Domain (business ru
 
 * **Restaurant** (/restaurant/)
 * * Allowed methods GET, DELETE, POST
-   POST parameters `name` (restaurant name) and `max` (restaurant maximum capacity).
+   --> POST parameters `name` (restaurant name) and `max` (restaurant maximum capacity).
 
 * **Client** (/client/)
 * * Allowed methods GET, DELETE, POST
-   POST parameters `name` (client name).
+   --> POST parameters `name` (client name).
 
 * **Reservation** (/reservation/)
 * * Allowed methods GET, DELETE, POST
-  POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation).
+  --> POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation).
