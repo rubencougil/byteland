@@ -11,12 +11,12 @@ class Reservation
     private $client;
     private $date;
 
-    public function __construct(Restaurant $restaurant, Client $client, Date $date)
+    public function __construct(Restaurant $restaurant, Client $client, Date $date, $id = null)
     {
+        $this->id = $id ? $id : uniqid();
         $this->restaurant = $restaurant;
         $this->client = $client;
         $this->date = $date;
-        $this->id = uniqid();
     }
 
     public function id()

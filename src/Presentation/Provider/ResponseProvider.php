@@ -12,6 +12,10 @@ class ResponseProvider implements ServiceProviderInterface
         $app['response.json'] = $app->share(function() use ($app) {
             return new \Byteland\Presentation\Response\Json();
         });
+
+        $app['response.error'] = $app->share(function() use ($app) {
+            return new \Byteland\Presentation\Response\Error();
+        });
     }
 
     public function boot(Application $app)

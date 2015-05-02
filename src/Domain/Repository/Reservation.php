@@ -13,4 +13,6 @@ interface Reservation
     public function all();
 
     public function delete($id);
+
+    public function find(ReservationEntity $reservation);
 }

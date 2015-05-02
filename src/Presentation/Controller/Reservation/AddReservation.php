@@ -25,6 +25,9 @@ class AddReservation
         $this->reservationTransformer = $reservationTransformer;
     }
 
+    /**
+     * @throws \Byteland\Domain\Exception\ReservationException When reservation cannot be added;
+     */
     public function execute(Request $request)
     {
         $reservation = $this->addReservationUseCase->handle(

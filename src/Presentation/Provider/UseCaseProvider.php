@@ -65,7 +65,9 @@ class UseCaseProvider implements ServiceProviderInterface
 
         $app['usecase.addreservation'] = $app->share(function() use ($app) {
             return new \Byteland\Domain\Usecase\Reservation\AddReservation(
-                $app['repo.reservation']
+                $app['repo.reservation'],
+                $app['repo.restaurant'],
+                $app['repo.client']
             );
         });
 

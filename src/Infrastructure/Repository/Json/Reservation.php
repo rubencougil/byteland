@@ -24,7 +24,8 @@ class Reservation implements ReservationRepository
         return new ReservationEntity(
             new Restaurant($this->reservations[$id]['restaurant']),
             new Client($this->reservations[$id]['client']),
-            new Date($this->reservations[$id]['date'])
+            new Date($this->reservations[$id]['date']),
+            $id
         );
     }
 
@@ -43,13 +44,20 @@ class Reservation implements ReservationRepository
 
     public function all()
     {
-        return array_map(function($reservation){
-            return new ReservationEntity(
-                new Restaurant($reservation['restaurant']),
-                new Client($reservation['client']),
-                new Date($reservation['date'])
-                );
-        }, $this->reservations);
+        $reservations = [];
+
+        foreach ($this->reservations as $id => $details)
+        {
+            $reservations[] = new ReservationEntity(
+                new Restaurant($details['restaurant']),
+                new Client($details['client']),
+                new Date($details['date']),
+                $id
+            );
+        }
+
+
+        return $reservations;
     }
 
     public function delete($id)
@@ -57,6 +65,19 @@ class Reservation implements ReservationRepository
         unset($this->reservations[$id]);
         $this->persist();
         return $this->all();
+    }
+
+    public function find(ReservationEntity $reservation)
+    {
+        foreach ($this->reservations as $key => $value)
+        {
+            if($value['restaurant'] === $reservation->restaurant()->name()
+                && $value['client'] === $reservation->client()->name()
+                && $value['date'] === $reservation->date()->date())
+            {
+                return $this->get($key);
+            }
+        }
     }
 
     public function persist()

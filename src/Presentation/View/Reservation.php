@@ -17,9 +17,11 @@ class Reservation implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'restaurant' => $this->reservation->restaurant()->name(),
-            'client' => $this->reservation->client()->name(),
-            'date' => $this->reservation->date()->date()
+            $this->reservation->id() => [
+                'restaurant' => $this->reservation->restaurant()->name(),
+                'client' => $this->reservation->client()->name(),
+                'date' => $this->reservation->date()->date()
+            ]
         ];
     }
 }
