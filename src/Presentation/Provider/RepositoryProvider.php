@@ -20,6 +20,12 @@ class RepositoryProvider implements ServiceProviderInterface
                 __DIR__ . "/../../DataSource/clients.json"
             );
         });
+
+        $app['repo.reservation'] = $app->share(function() use ($app) {
+            return new \Byteland\Infrastructure\Repository\Json\Reservation(
+                __DIR__ . "/../../DataSource/reservations.json"
+            );
+        });
     }
 
     public function boot(Application $app)

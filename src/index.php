@@ -19,6 +19,7 @@ $app->register(new Byteland\Presentation\Provider\UseCaseProvider());
 // Routing
 $app->mount('/restaurant', include __DIR__.'/Presentation/Routes/Restaurant.php');
 $app->mount('/client', include __DIR__.'/Presentation/Routes/Client.php');
+$app->mount('/reservation', include __DIR__.'/Presentation/Routes/Reservation.php');
 $app->after('response.json:execute');
 
 $app->run(); 

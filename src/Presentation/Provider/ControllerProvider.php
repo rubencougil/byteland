@@ -64,6 +64,34 @@ class ControllerProvider implements ServiceProviderInterface
                 $app['transformer.client']
             );
         });
+
+        $app['controller.getreservation'] = $app->share(function() use ($app) {
+            return new \Byteland\Presentation\Controller\Reservation\GetReservation(
+                $app['usecase.getreservation'],
+                $app['transformer.reservation']
+            );
+        });
+
+        $app['controller.removereservation'] = $app->share(function() use ($app) {
+            return new \Byteland\Presentation\Controller\Reservation\RemoveReservation(
+                $app['usecase.removereservation'],
+                $app['transformer.reservation']
+            );
+        });
+
+        $app['controller.addreservation'] = $app->share(function() use ($app) {
+            return new \Byteland\Presentation\Controller\Reservation\AddReservation(
+                $app['usecase.addreservation'],
+                $app['transformer.reservation']
+            );
+        });
+
+        $app['controller.listreservation'] = $app->share(function() use ($app) {
+            return new \Byteland\Presentation\Controller\Reservation\ListReservation(
+                $app['usecase.listreservation'],
+                $app['transformer.reservation']
+            );
+        });
     }
 
     public function boot(Application $app)
