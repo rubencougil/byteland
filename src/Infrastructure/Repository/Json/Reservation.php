@@ -21,12 +21,15 @@ class Reservation implements ReservationRepository
 
     public function get($id)
     {
-        return new ReservationEntity(
-            new Restaurant($this->reservations[$id]['restaurant']),
-            new Client($this->reservations[$id]['client']),
-            new Date($this->reservations[$id]['date']),
-            $id
-        );
+        if (array_key_exists($id, $this->reservations))
+        {
+            return new ReservationEntity(
+                new Restaurant($this->reservations[$id]['restaurant']),
+                new Client($this->reservations[$id]['client']),
+                new Date($this->reservations[$id]['date']),
+                $id
+            );
+        }
     }
 
     public function add(ReservationEntity $reservation)

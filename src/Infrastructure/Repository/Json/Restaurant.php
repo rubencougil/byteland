@@ -18,15 +18,14 @@ class Restaurant implements RestaurantRepository
 
     public function get($name)
     {
-        if (!array_key_exists($name, $this->restaurants))
+        if (array_key_exists($name, $this->restaurants))
         {
-            return null;
+            return new RestaurantEntity(
+                $this->restaurants[$name]['name'],
+                $this->restaurants[$name]['max']
+            );
         }
 
-        return new RestaurantEntity(
-            $this->restaurants[$name]['name'],
-            $this->restaurants[$name]['max']
-        );
     }
 
     public function add(RestaurantEntity $restaurant)

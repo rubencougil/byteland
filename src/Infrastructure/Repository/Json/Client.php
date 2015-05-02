@@ -18,9 +18,12 @@ class Client implements ClientRepository
 
     public function get($name)
     {
-        return new ClientEntity(
-            $this->clients[$name]['name']
-        );
+        if (array_key_exists($name, $this->clients))
+        {
+            return new ClientEntity(
+                $this->clients[$name]['name']
+            );
+        }
     }
 
     public function add(ClientEntity $client)
