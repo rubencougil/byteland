@@ -11,7 +11,7 @@ itself (framework concerns). The application is separated in Domain (business ru
 ### Installation ###
 
 1. Install Vagrant.
-2. Install ANsible.
+2. Install Ansible.
 3. Download the project and run `vagrant up --provision`.
 4. Add `192.168.33.99 byteland.dev` to your `hosts` system configuration file.
 5. Use an HTTP client (like POSTMAN for Chrome) and start throwing petitions.
