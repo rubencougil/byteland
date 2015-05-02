@@ -6,7 +6,6 @@
     servername: byteland.dev 192.168.33.99
     timezone: Europe/Madrid
   vars_files:
-    - vars/mysql.yml
     - vars/common.yml
     - [ "vars/apachephp.yml", "vars/ws_defaults.yml" ]
   roles:
@@ -14,7 +13,6 @@
     - php5-cli
     - apache
     - php5
-    - mysql
     - composer
     - phpcommon
     - app
