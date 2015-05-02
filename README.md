@@ -18,19 +18,14 @@ itself (framework concerns). The application is separated in Domain (business ru
 
 ### Resources ###
 
-* Restaurant (/restaurant/)
-** Allowed methods GET, DELETE, POST
+* **Restaurant** (/restaurant/)
+* * Allowed methods GET, DELETE, POST
    POST parameters `name` (restaurant name) and `max` (restaurant maximum capacity).
 
-* Client (/client/)
-** Allowed methods GET, DELETE, POST
+* **Client** (/client/)
+* * Allowed methods GET, DELETE, POST
    POST parameters `name` (client name).
 
-* Reservation (/reservation/)
-** Allowed methods GET, DELETE, POST
+* **Reservation** (/reservation/)
+* * Allowed methods GET, DELETE, POST
   POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation).
-
-
-### Who do I talk to? ###
-
-* Ruben Cougil (rubencougil@gmail.com)
