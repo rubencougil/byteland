@@ -1,29 +1,36 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is the Byteland exercise. It is a REST API that manages Restaurants, Clients and Reservations.
 
-### What is this repository for? ###
+##Philosophy##
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+The main objective of the implementation is to separate the business logic from the implementation
+itself (framework concerns). The application is separated in Domain (business rules), Infrastructure
+(Repositories), Presentation (Silex), and DataSource (data files).
 
-### How do I get set up? ###
+### Installation ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+1. Install Vagrant.
+2. Install ANsible.
+3. Download the project and run `vagrant up --provision`.
+4. Add `192.168.33.99 byteland.dev` to your `hosts` system configuration file.
+5. Use an HTTP client (like POSTMAN for Chrome) and start throwing petitions.
 
-### Contribution guidelines ###
+### Resources ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* Restaurant (/restaurant/)
+** Allowed methods GET, DELETE, POST
+   POST parameters `name` (restaurant name) and `max` (restaurant maximum capacity).
+
+* Client (/client/)
+** Allowed methods GET, DELETE, POST
+   POST parameters `name` (client name).
+
+* Reservation (/reservation/)
+** Allowed methods GET, DELETE, POST
+  POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation).
+
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Ruben Cougil (rubencougil@gmail.com)
