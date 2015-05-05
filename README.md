@@ -1,6 +1,9 @@
+
 # README #
 
-This is the Byteland exercise. It is a REST API that manages Restaurants, Clients and Reservations.
+It is a simple DDD (Domain Drive Design) example implementation of a REST API
+It manages Restaurants, Clients and Reservations.
+
 
 ##Philosophy##
 
@@ -28,4 +31,6 @@ itself (framework concerns). The application is separated in Domain (business ru
 
 * **Reservation** (/reservation/)
 * * Allowed methods GET, DELETE, POST
-  --> POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation). 
+  --> POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation).
+
+
