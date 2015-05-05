@@ -28,4 +28,4 @@ itself (framework concerns). The application is separated in Domain (business ru
 
 * **Reservation** (/reservation/)
 * * Allowed methods GET, DELETE, POST
-  --> POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation).
+  --> POST parameters `restaurant` (restaurant name), `client` (client name) and `date` (date of the reservation). 
