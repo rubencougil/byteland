@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/rubencougil/byteland.svg?branch=master)](https://travis-ci.org/rubencougil/byteland)
 
 # README #
 
