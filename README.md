@@ -2,7 +2,7 @@
 
 # README #
 
-It is a simple DDD (Domain Driven Design) example implementation of a REST API
+It is a simple Hexagonal Architecture example implementation of a REST API
 It manages Restaurants, Clients and Reservations.
 
 
