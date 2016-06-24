@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/rubencougil/byteland.svg?branch=master)](https://travis-ci.org/rubencougil/byteland)
 
+![Scrutinizer](https://scrutinizer-ci.com/g/rubencougil/byteland/badges/build.png?b=master)
+
 # README #
 
 It is a simple Hexagonal Architecture example implementation of a REST API
