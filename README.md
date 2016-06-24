@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rubencougil/byteland.svg?branch=master)](https://travis-ci.org/rubencougil/byteland) ![Scrutinizer](https://scrutinizer-ci.com/g/rubencougil/byteland/badges/build.png?b=master)
+[![Build Status](https://travis-ci.org/rubencougil/byteland.svg?branch=master)](https://travis-ci.org/rubencougil/byteland) [![Build Status](https://scrutinizer-ci.com/g/rubencougil/byteland/badges/build.png?b=master)](https://scrutinizer-ci.com/g/rubencougil/byteland/build-status/master)
 
 # README #
 
